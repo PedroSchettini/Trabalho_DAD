@@ -1,0 +1,56 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+#fundo_fase{
+    position:absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+.fases{
+    width: 125px;
+    height: 125px;
+}
+
+#fase1{
+    position: absolute;
+    bottom: 200px;
+    left: 420px;
+}
+
+#fase2{
+    position: absolute;
+    bottom: 200px;
+    right: 420px;
+}
+
+#fase3{
+    position: absolute;
+    bottom: 70px;
+    left: 470px;
+}
+
+#fase4{
+    position: absolute;
+    bottom: 50px;
+    left: 100px;
+}
+
+#fase5{
+    position: absolute;
+    bottom: 20px;
+    right: 300px;
+}
+
+#fase6{
+    position: absolute;
+    bottom: 110px;
+    right: 90px;
+}
+
+.desbloqueado{
+    cursor: pointer;
+}
