@@ -16,6 +16,8 @@ btnAdventure = document.querySelector("#btn_adventure")
 //     }, 1500)
 // })
 
+const phases = localStorage.getItem('phases')
+
 portainicio.addEventListener('click', () => {
     boxgameType.classList.remove("invisivel")
     boxgameType.classList.add("game_type_class")
@@ -31,6 +33,9 @@ close.addEventListener('click', () => {
 btnStudent.addEventListener('click', () => {
     window.location.replace('../principal/index.html')
     localStorage.setItem('gameType', 1)
+    if(!phases){
+      localStorage.setItem('phases', JSON.stringify([1]))
+    }
 })
 
 btnAdventure.addEventListener('click', () => {
