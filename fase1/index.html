@@ -5,15 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="../assets/gitinho.ico" type="x-icon">
+    <script src="./main.js" defer></script>
     <title>Fase 1</title>
 </head>
 <body>
     <img id="fundo_fase" src="../assets/imagem_fases.png" alt="imagem_fases">
     <article>
         <img id="orangeCat" class="unbroken phase" src="../assets/gitinho_laranja 2.png" alt="orangeCat">
-        <div class="contents">
-            <p class="title">O que é git?</p>
-            <p class="explanation">Git é uma ferramenta que ajuda os desenvolvedores a controlar as diferentes versões do seu código ao longo do tempo. </p>
+        <div id='step1' class="contents">
+            <div>
+                <h3 class="title">O que é <strong class="yellow">git</strong>?</h3>
+                <p><strong class="yellow">Git</strong> é uma ferramenta que ajuda os desenvolvedores a controlar as diferentes versões do seu código ao longo do tempo. </p><br>
+                <p>Com o Git, é fácil trabalhar em equipe, pois várias pessoas podem colaborar no mesmo projeto sem conflitos. Para compartilhar o projeto com outras máquinas, você precisa enviar seu código para um <strong class="blue">repositorio remoto</strong>, como o <strong class="purple">GitHub</strong>.</p>
+            </div>
+            <div class="btn_box">
+                <div id="btn_next_step1" class="btn_next">Próximo</div>
+            </div>
+        </div>
+        <div id='step2' class="contents invisible">
+            <div>
+                <h3 class="title"><strong class="blue">Repositórios</strong></h3>
+                <p>Um<strong class="blue">Repositório</strong> no <strong class="yellow">Git</strong> é basicamente uma espécie de pasta que armazena todos os arquivos e histórico de um projeto. </p><br>
+                <p>Ele funciona como um local central onde você pode salvar, gerenciar e colaborar em seu código. Pense nele como um grande armazém digital onde você guarda todas as versões e alterações do seu projeto. </p>
+            </div>
+            <div class="btn_box">
+                <div class="btn_next">Vamos praticar</div>
+            </div>
         </div>
     </article>
 </body>

@@ -19,7 +19,7 @@ if(gameType == 1){
 
 if(!!phase1.classList[1]){
     phase1.addEventListener('click', () => {
-        window.location.replace('../fase1/index.html')
+        window.location.assign('../fase1/index.html')
     })
 }
 if(!!phase2.classList[1]){
