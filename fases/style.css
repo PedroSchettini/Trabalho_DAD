@@ -33,11 +33,14 @@ article{
     width: 60vw;
     height: 70vh ;
     background-color: white;
-    margin-left: 70px;
+    margin-left: 100px;
     border-radius: 20px;
     opacity: 95%;
     padding: 20px;
     word-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .title{
@@ -56,7 +59,7 @@ article{
     color: #741DA1;
 }
 
-.btn_play{
+.btn_next{
     background-color: #9694fc;
     border-radius: 10px;
     display: flex;
@@ -64,8 +67,18 @@ article{
     justify-content: center;
     padding: 0.6rem 1rem;
     cursor: pointer;
+    float: right;
+    width: 25%;
   }
  
-.btn_play:hover{
+.btn_next:hover{
 background-color: #706EFA;
+}
+
+.invisible{
+    display: none;
+}
+
+.btn_box{
+    width: 100%;
 }
