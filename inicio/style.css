@@ -120,11 +120,15 @@ body{
   }
   
   .door:hover {
+    
     animation: openDoor 0.4s;
+    background-image: url(porta/porta10.png);
   }
   
   .closing {
+
     animation: closeDoor 0.4s;
+    background-image: url(porta/porta1.png);
   }
 
 img{

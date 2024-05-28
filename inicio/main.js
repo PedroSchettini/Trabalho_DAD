@@ -49,4 +49,6 @@ door.addEventListener('mouseleave', () => {
 
 door.addEventListener('mouseenter', () => {
     door.classList.remove('closing')
+    
 })
+
