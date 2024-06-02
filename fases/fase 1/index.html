@@ -22,14 +22,147 @@
                 <div id="btn_next_step1" class="btn_next">Próximo</div>
             </div>
         </div>
+
         <div id='step2' class="boxContents invisible">
             <div>
                 <h3 class="title"><strong class="blue">Repositórios</strong></h3>
-                <p>Um<strong class="blue">Repositório</strong> no <strong class="yellow">Git</strong> é basicamente uma espécie de pasta que armazena todos os arquivos e histórico de um projeto. </p><br>
+                <p>Um <strong class="blue">Repositório</strong> no <strong class="yellow">Git</strong> é basicamente uma espécie de pasta que armazena todos os arquivos e histórico de um projeto. </p><br>
                 <p>Ele funciona como um local central onde você pode salvar, gerenciar e colaborar em seu código. Pense nele como um grande armazém digital onde você guarda todas as versões e alterações do seu projeto. </p>
             </div>
             <div class="btn_box">
-                <div class="btn_next">Vamos praticar</div>
+                <div id="btn_pratice1" class="btn_next">Vamos praticar</div>
+            </div>
+        </div>
+
+        <div id='step3' class="boxContents invisible">
+            <div>
+                <h3 class="title"><strong class="red">Praticando</strong></h3>
+                <p>Abra o terminal no nosso repositório! </p><br>
+                <div class="folder">
+                    <img id="folder_terminal" src="../../assets/folder.png" alt="Abra a pasta" class="iconImg">
+                    <p>iniciando_repositorio_gitinho</p>
+                </div>
+                <p id="open_terminal" class="invisible">Abrir com o gitBash</p>
+            </div>
+        </div>
+
+        <div id='step4' class="boxContents invisible boxWithTerminal">
+            <div class="open_folder_terminal">
+                <img id="folder_terminal" src="../../assets/open_folder.png" alt="Pasta aberta" class="iconImg" style="cursor: initial;">
+                <div>
+                    <p>Para iniciar um repositório local digite o seguinte comando :</p>
+                    <p class="citation">"git init"</p>
+                </div>
+            </div>
+            <div class="terminal">
+                <p style="margin-bottom: 1rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong></p>
+                $ <input type="text" name="" class="input_terminal" id="step4_input">
+            </div>
+        </div>
+
+        <div id='step5' class="boxContents invisible">
+            <div class="open_folder_terminal">
+                <img id="folder_terminal" src="../../assets/open_folder.png" alt="Pasta aberta" class="iconImg" style="cursor: initial;">
+                <div>
+                    <p>Pronto!! Você criou seu primeiro repositório local !!</p>
+                    <p>Você está na branch “master” como sinalizado dentro dos parênteses!</p>
+                </div>
+            </div>
+            <div class="terminal">
+                <p style="margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong></p>
+                <p>$ git init</p>
+                <p>Initialized empty Git repository in C:/iniciando_repositorio_gitinho</p>
+                <p style="margin-top: 1rem; margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong> <strong class="green">(master)</strong></p>
+                <p>$</p>
+            </div>
+            <p style="margin: 1rem;">A comunidade decidiu que “master” não deve ser utilizado então vamos mudar isso!</p>
+            <div class="btn_box">
+                <div id="btn_next_step5" class="btn_next">Próximo</div>
+            </div>
+        </div>
+
+        <div id='step6' class="boxContents invisible">
+            <div class="open_folder_terminal">
+                <img id="folder_terminal" src="../../assets/open_folder.png" alt="Pasta aberta" class="iconImg" style="cursor: initial;">
+                <div>
+                    <p>Para mudar o nome da branch utilize o comando :</p>
+                    <p class="citation">"git branch -M &lt;nomedaBranch&gt;"</p>
+                </div>
+            </div>
+            <div class="terminal branch_master">
+                <p style="margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong><strong class="green">(master)</strong></p>
+                $ <input type="text" name="" class="input_terminal" id="step6_input">
+            </div>
+            <div class="terminal second_branch invisible">
+                <p style="margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong><strong class="green">(master)</strong></p>
+                <p>$ git branch -M main</p>
+                <p style="margin-top: 1rem; margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong> <strong class="green">(main)</strong></p>
+                <p>$</p>
+            </div>
+            <p style="margin: 1rem;">Assim nós alteramos o nome da branch para main que significa principal!</p>
+            <div class="btn_box invisible" id="btn_box6">
+                <div id="btn_next_step6" class="btn_next">Próximo</div>
+            </div>
+        </div>
+
+        <div id='step7' class="boxContents invisible">
+            <div>
+                <h3 class="title"><strong class="blue">Repositórios</strong></h3>
+                <p>Um <strong class="purple">repositório remoto</strong> é um lugar na internet onde os desenvolvedores guardam o código de seus projetos. Ele permite que várias pessoas trabalhem no mesmo código ao mesmo tempo, mesmo estando em locais diferentes. Plataformas como GitHub, GitLab e Bitbucket são exemplos de onde esses repositórios podem ser encontrados.</p>
+                <br>
+                <p>Vamos te ensinar a conectar a um repositório remoto para que você consiga compartilhar seu código com seus amigos e colegas de trabalho!</p>
+            </div>
+            <div class="btn_box">
+                <div id="btn_next_step7" class="btn_next">Vamos praticar</div>
+            </div>
+        </div>
+
+        <div id='step8' class="boxContents invisible">
+            <div class="open_folder_terminal">
+                <img id="folder_terminal" src="../../assets/open_folder.png" alt="Pasta aberta" class="iconImg" style="cursor: initial;">
+                <div>
+                    <p>Como você já criou o seu repositório localmente, precisamos conectar com o git hub.</p>
+                </div>
+            </div>
+            <p>No GitHub crie um repositório vazio, nele vai aparecer a essa mensagem, copie esse link para conseguir conectar seus repositorios: </p>
+            <img src="./../../assets/image_repository.png" alt="Repositório fictício">
+            <p style="margin: 1rem;">o link vai estar disponível para você seguir seu aprendizado</p>
+            <div class="btn_box">
+                <div id="btn_next_step8" class="btn_next">Próximo</div>
+            </div>
+        </div>
+
+        <div id='step9' class="boxContents invisible boxWithTerminal">
+            <div class="open_folder_terminal">
+                <img id="folder_terminal" src="../../assets/open_folder.png" alt="Pasta aberta" class="iconImg" style="cursor: initial;">
+                <div>
+                    <p>Para conectar com o repositório remoto use o comando: </p>
+                    <p class="citation">“git remote add origin &lt;link do github&gt;”</p>
+                </div>
+            </div>
+            <div class="terminal">
+                <p style="margin-bottom: 1rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong></p>
+                $ <input type="text" name="" class="input_terminal" id="step9_input">
+            </div>
+            <p style="margin-top: 1rem;">link do git para exemplo: <strong class="purple">https://github.com/Gitinho/IniciandoRepositorio.git</strong></p>
+        </div>
+
+        <div id='step10' class="boxContents invisible">
+            <div>
+                <h2 class="title">Vamos aprender mais Sobre o que é Branch na próxima aula !</h2>
+                <div>
+                    <p>O que aprendemos aprendemos juntos?</p>
+                    <ul>
+                    <li>O que é o git e para o que ele serve</li>
+                    <li>O que é um repositório</li>
+                    <li>Como criar um repositório Local</li>
+                    <li>Como mudar o nome da branch</li>
+                    <li>Conectar com o repositório remoto</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="btn_box">
+                <div id="btn_next_step10" class="btn_next">Finalizar fase 1</div>
             </div>
         </div>
     </article>

@@ -39,7 +39,7 @@ btnStudent.addEventListener('click', () => {
 })
 
 btnAdventure.addEventListener('click', () => {
-  window.location.replace('../principal/index.html')
+  window.location.assign('../principal/index.html')
   localStorage.setItem('gameType', 2)
 })
 
