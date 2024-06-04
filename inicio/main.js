@@ -39,7 +39,7 @@ btnStudent.addEventListener('click', () => {
 })
 
 btnAdventure.addEventListener('click', () => {
-  window.location.replace('../principal/index.html')
+  window.location.assign('../principal/index.html')
   localStorage.setItem('gameType', 2)
 })
 
@@ -49,4 +49,6 @@ door.addEventListener('mouseleave', () => {
 
 door.addEventListener('mouseenter', () => {
     door.classList.remove('closing')
+    
 })
+
