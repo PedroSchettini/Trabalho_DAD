@@ -42,14 +42,6 @@ article{
     flex-direction: column;
     justify-content: space-between;
 }
-.boxContents h3{
-    position: relative;
-    top: 20px;
-}
-.boxContents p:first-of-type{
-    position: relative;
-    top: -25px;
-}
 
 .title{
     margin-bottom: 3rem;
@@ -67,8 +59,6 @@ article{
     color: #741DA1;
 }
 
-.ciano{
-    color: rgba(71, 185, 222, 1);
 .red{
     color: #D01A1A;
 }
@@ -163,4 +153,102 @@ background-color: #706EFA;
   background-color: #4d4d67;
   margin-left: 5px;
   color: white;
+}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+}
+
+#fundo_fase{
+    position:absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+article{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cat{
+    width: 250px;
+    height: 250px;
+    margin-top: 290px;
+    margin-left: 30px;
+}
+
+.boxContents{
+    width: 60vw;
+    height: 70vh ;
+    background-color: white;
+    margin-left: 100px;
+    border-radius: 20px;
+    opacity: 95%;
+    padding: 20px;
+    word-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.boxContents h3{
+    position: relative;
+    top: 20px;
+}
+.boxContents p:first-of-type{
+    position: relative;
+    top: -25px;
+}
+
+.title{
+    margin-bottom: 3rem;
+}
+
+.yellow{
+    color: #FFA014;
+}
+
+.blue{
+    color: #221EC3;
+}
+
+.purple{
+    color: #741DA1;
+}
+
+.ciano{
+    color: rgba(71, 185, 222, 1);
+}
+
+
+
+.btn_next{
+    background-color: #9694fc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    float: right;
+    width: 25%;
+  }
+ 
+.btn_next:hover{
+background-color: #706EFA;
+}
+
+.invisible{
+    display: none;
+}
+
+.btn_box{
+    width: 100%;
 }
