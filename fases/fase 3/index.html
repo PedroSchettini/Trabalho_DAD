@@ -4,16 +4,38 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" href="../../assets/gitinho_degrade.png" type="x-icon">
+    <script src="./main.js" defer></script>
     <title>Fase 3</title>
 </head>
 <body>
     <img id="fundo_fase" src="../../assets/imagem_fases.png" alt="imagem_fases">
     <article>
         <img id="grayCat" class="cat" src="../../assets/gitinho_degrade.png" alt="grayCat">
-        <div class="boxContents">
-            <p class="title">O que é git?</p>
-            <p class="explanation">Git é uma ferramenta que ajuda os desenvolvedores a controlar as diferentes versões do seu código ao longo do tempo. </p>
+        <div id="step1" class="boxContents">
+            <h3 class="title"><strong class="ciano">Comandos gerais</strong></h3>
+            <p>Aqui estão alguns exemplos de comandos gerais importantes do <strong class="yellow">git</strong>:</p>
+            <p> <i>"git init"</i> -> inicializa um repositório local</p>
+            <p><i>“git status</i>” -> exibe o estado atual do repositório, incluindo arquivos modificados e não rastreados.</p>
+            <p><i>“git add .”</i> -> prepara todos os arquivos para salvar</p>
+            <p><i>“git commit -m “&ltmensagem&gt” ”</i> -> salvar alterações</p>
+            <p><i>“git push origin &ltnomeDaBranch&gt”</i> -> envia para o repositório remoto</p>
+            <p><i>“git clone &ltlinkRepositorio&gt”</i> -> clona um repositório existente do GitHub para um novo diretório local.</p>
+
+            <div class="btn_box">
+                <div id="btn_next_step1" class="btn_next">Próximo</div>
+            </div>
         </div>
+
+        <div id="step2" class="boxContents">
+            <div><img src="../../assets/open folder.png" alt="pasta aberta"></div>
+            <div>
+                Vamos verificar como estão os arquivos do seu projeto. Para isso nós utilizamos o  <i>“git status”</i> que exibe o estaus atual do repositório de trabalho.
+                Nós podemos verificar se os arquivos foram adicionados, modificados e deletados.
+                Teste esse comando no nosso terminal.
+            </div>
+            
+        </div>
+        
     </article>
 </body>
 </html>

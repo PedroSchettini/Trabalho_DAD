@@ -42,6 +42,14 @@ article{
     flex-direction: column;
     justify-content: space-between;
 }
+.boxContents h3{
+    position: relative;
+    top: 20px;
+}
+.boxContents p:first-of-type{
+    position: relative;
+    top: -25px;
+}
 
 .title{
     margin-bottom: 3rem;
@@ -57,6 +65,10 @@ article{
 
 .purple{
     color: #741DA1;
+}
+
+.ciano{
+    color: rgba(71, 185, 222, 1);
 }
 
 .btn_next{
