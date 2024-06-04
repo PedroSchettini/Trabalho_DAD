@@ -198,14 +198,6 @@ article{
     flex-direction: column;
     justify-content: space-between;
 }
-.boxContents h3{
-    position: relative;
-    top: 20px;
-}
-.boxContents p:first-of-type{
-    position: relative;
-    top: -25px;
-}
 
 .title{
     margin-bottom: 3rem;
@@ -228,6 +220,17 @@ article{
 }
 
 
+.btn_next{
+    background-color: #9694fc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    float: right;
+    width: 25%;
+}
 
 .btn_next{
     background-color: #9694fc;
@@ -239,7 +242,7 @@ article{
     cursor: pointer;
     float: right;
     width: 25%;
-  }
+}
  
 .btn_next:hover{
 background-color: #706EFA;
