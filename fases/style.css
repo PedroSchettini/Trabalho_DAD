@@ -88,6 +88,12 @@ article{
     color: #0CF587;
 }
 
+.greenGStatus{
+    color: rgba(34, 227, 17, 1);
+}
+
+
+
 .btn_next{
     background-color: #9694fc;
     border-radius: 10px;
@@ -224,7 +230,22 @@ article{
     position: relative;
     top: -30px;
 }
-comGerais
+
+#indentacao1{
+    margin-left: 10px;
+}
+
+#indentacao2{
+    margin-left: 22px;
+}
+
+.bt_margin{
+    margin-top: 40px;
+}
+
+.margin_git{
+    margin-bottom: 8px;
+}
 
 .title{
     margin-bottom: 3rem;
