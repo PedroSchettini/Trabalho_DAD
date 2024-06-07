@@ -43,6 +43,27 @@ article{
     justify-content: space-between;
 }
 
+#exemplosGerais{
+    position: relative;
+    top: -30px;
+}
+
+#comGerais{
+    margin-top: 20px;
+}
+
+#imgPasta{
+    display: inline-block;
+    width: min-content;
+    background-color: #0CF587;
+}
+
+#gitStatus{
+    display: inline-block;
+    width: 400px;
+    background-color: #221EC3;
+}
+
 .title{
     margin-bottom: 3rem;
 }
@@ -198,6 +219,12 @@ article{
     flex-direction: column;
     justify-content: space-between;
 }
+
+#exemplosGerais{
+    position: relative;
+    top: -30px;
+}
+comGerais
 
 .title{
     margin-bottom: 3rem;

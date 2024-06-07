@@ -12,8 +12,8 @@
     <article>
         <img id="grayCat" class="cat" src="../../assets/gitinho_degrade.png" alt="grayCat">
         <div id="step1" class="boxContents">
-            <h3 class="title"><strong class="ciano">Comandos gerais</strong></h3>
-            <p>Aqui estão alguns exemplos de comandos gerais importantes do <strong class="yellow">git</strong>:</p>
+            <h3 class="title" id="comGerais"><strong class="ciano">Comandos gerais</strong></h3>
+            <p id="exemplosGerais">Aqui estão alguns exemplos de comandos gerais importantes do <strong class="yellow">git</strong>:</p>
             <p> <i>"git init"</i> -> inicializa um repositório local</p>
             <p><i>“git status</i>” -> exibe o estado atual do repositório, incluindo arquivos modificados e não rastreados.</p>
             <p><i>“git add .”</i> -> prepara todos os arquivos para salvar</p>
@@ -27,14 +27,24 @@
         </div>
 
         <div id="step2" class="boxContents invisible">
-            <div><img src="../../assets/open folder.png" alt="pasta aberta"></div>
-            <div>
+            <!-- <div id="imgPasta"><img src="../../assets/open folder.png" alt="pasta aberta"></div>
+            <div id="gitStatus">
                 Vamos verificar como estão os arquivos do seu projeto. Para isso nós utilizamos o  <i>“git status”</i> que exibe o estaus atual do repositório de trabalho.
                 Nós podemos verificar se os arquivos foram adicionados, modificados e deletados.
                 Teste esse comando no nosso terminal.
+            </div> -->
+            <div class="open_folder_terminal">
+                <img id="folder_terminal" src="../../assets/open_folder.png" alt="Pasta aberta" class="iconImg" style="cursor: initial;">
+                <div>
+                    <p>Vamos verificar como estão os arquivos do seu projeto. Para isso nós utilizamos o  <span class="citation">“git status”</span> que exibe o estaus atual do repositório de trabalho.
+                    Nós podemos verificar se os arquivos foram adicionados, modificados e deletados.
+                    Teste esse comando no nosso terminal.</p>
+                </div>
             </div>
-            
-            
+            <div class="terminal">
+                <p style="margin-bottom: 1rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong></p>
+                $ <input type="text" name="" class="input_terminal" id="step4_input">
+            </div>
         </div>
         
     </article>
