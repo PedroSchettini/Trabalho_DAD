@@ -43,6 +43,27 @@ article{
     justify-content: space-between;
 }
 
+#exemplosGerais{
+    position: relative;
+    top: -30px;
+}
+
+#comGerais{
+    margin-top: 20px;
+}
+
+#imgPasta{
+    display: inline-block;
+    width: min-content;
+    background-color: #0CF587;
+}
+
+#gitStatus{
+    display: inline-block;
+    width: 400px;
+    background-color: #221EC3;
+}
+
 .title{
     margin-bottom: 3rem;
 }
@@ -66,6 +87,12 @@ article{
 .green{
     color: #0CF587;
 }
+
+.greenGStatus{
+    color: rgba(34, 227, 17, 1);
+}
+
+
 
 .btn_next{
     background-color: #9694fc;
@@ -198,13 +225,26 @@ article{
     flex-direction: column;
     justify-content: space-between;
 }
-.boxContents h3{
+
+#exemplosGerais{
     position: relative;
-    top: 20px;
+    top: -30px;
 }
-.boxContents p:first-of-type{
-    position: relative;
-    top: -25px;
+
+#indentacao1{
+    margin-left: 10px;
+}
+
+#indentacao2{
+    margin-left: 22px;
+}
+
+.bt_margin{
+    margin-top: 40px;
+}
+
+.margin_git{
+    margin-bottom: 8px;
 }
 
 .title{
@@ -228,6 +268,17 @@ article{
 }
 
 
+.btn_next{
+    background-color: #9694fc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    float: right;
+    width: 25%;
+}
 
 .btn_next{
     background-color: #9694fc;
@@ -239,7 +290,7 @@ article{
     cursor: pointer;
     float: right;
     width: 25%;
-  }
+}
  
 .btn_next:hover{
 background-color: #706EFA;
