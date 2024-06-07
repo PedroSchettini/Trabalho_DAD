@@ -1,0 +1,715 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Tutorial Git</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3b1c6b77-6b89-4357-8a03-a30ba25c9f60" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://www.notion.so/icons/snippet_purple.svg"/></div><h1 class="page-title">Tutorial Git</h1><p class="page-description"></p></header><div class="page-body"><p id="d905bbf7-1400-4730-bf57-598b3f175e70" class="">Git pode parecer complicado mas sua base é bem simples. Existem alguns comandos essenciais que você precisa saber para conseguir realizar suas atividades diárias na parte de programação, aqui eu registrarei os principais comandos para facilitar a vida de qualquer Dev. necessitado.</p><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Para o que serve o Git ? </summary><div class="indented"><p id="70450d58-c02b-4872-90ea-17045fb126a1" class="">Git é um sistema de controle de versão. Ele permite que desenvolvedores gerenciem e acompanhem as alterações no código fonte ao longo do tempo. O Git facilita a colaboração, pois permite que várias pessoas trabalhem no mesmo projeto sem se atrapalharem.</p><p id="d816780f-64ae-43d8-bb40-ac4e54ed40a7" class="">Para compartilhar o projeto com outras maquinas você precisa subir seu projeto para um repositório remoto, ou seja em algum lugar fora do seu computador (como se fosse na nuvem), como o Github </p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Do que eu preciso para usar o Git (e o GitHub) ?</summary><div class="indented"><p id="c1cdcf27-66ac-417f-a605-de572233bc51" class="">Você precisará de um computador com Git instalado, uma conta no GitHub e muita determinação. A instalação do Git varia dependendo do sistema operacional que você está usando, mas geralmente é um processo simples. Quanto ao GitHub, é grátis criar uma conta e começar a usar. Vou deixar os passos abaixo, mas se você for tech pode pular toda essa parte.</p><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Instalação Git - <strong>Windows</strong></summary><div class="indented"><p id="562a70a7-8bac-483d-bade-aef73b8bfe6a" class="">A instalação para Windows é bem simples e não precisa da senha do administrador. Aqui estão os passos a serem seguidos : </p><ol type="1" id="a6b8efa1-5655-49c6-9211-22d849811bbc" class="numbered-list" start="1"><li>Faça o download do Git a partir do site oficial (<a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a>)</li></ol><ol type="1" id="1eb578f8-c609-4dcc-8070-421286ca66ec" class="numbered-list" start="2"><li>Execute o arquivo de instalação e siga as instruções na tela. Não há necessidade de alterar as opções padrão.</li></ol><ol type="1" id="99844854-0e5c-450e-abee-00c0157848ec" class="numbered-list" start="3"><li>Para verificar se a instalação foi bem-sucedida, abra o prompt de comando e digite: <code>git --version</code>. Deverá aparecer a versão do Git instalada.</li></ol><p id="e55a8cd0-aa0f-4329-bcd9-095177569d82" class="">
+</p><p id="2b484569-2618-4979-83d9-2083fa4bc739" class="">Caso haja alguma duvida eu deixei um passo a passo bem ilustrativo abaixo:</p><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Passo a Passo</summary><div class="indented"><p id="43d813ed-711b-4cb4-b45f-e86872b1492a" class="">1- Pesquise “git” e entre  na opção “Dowload for Windows” ou clique no link : “ <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a>” :</p><figure id="a6da4f2b-c50e-4ebf-85c3-cc59f3d58501" class="image"><a href="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled.png"><img style="width:480px" src="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled.png"/></a></figure><p id="7ecf7da9-05fd-4b5e-8549-013a74f05950" class="">
+</p><p id="9c03a4d4-51dd-456a-9dca-e161aa3e3299" class="">2 - Na pagina que abriu, clique na opção “Click here to dowload” e em seguida em “Salvar”. </p><p id="0e399cdb-935c-4343-9089-7be915fdea39" class="">Espere a instalação.</p><figure id="14549244-f93a-4829-8c34-af1866443d00" class="image"><a href="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%201.png"><img style="width:528px" src="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%201.png"/></a></figure><figure id="429cc7be-ef68-42c8-8a2b-ad49bb9d1453" class="image"><a href="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%202.png"><img style="width:528px" src="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%202.png"/></a></figure><p id="cceefaca-c1f3-42ab-843a-8a7421cf827c" class="">
+</p><p id="80d740dc-194c-49d2-9cfb-cca91afeefac" class="">3 - Na seu explorador de arquivos (pasta onde fica os documentos), encontre o instalador que você acabou de baixar. </p><p id="d2f54505-fb21-40a2-96d3-88900c74837d" class="">Dica : muito provavelmente você ira encontrar o instalador na parte de download.</p><figure id="53dd4c0d-b861-4d7b-b1a0-d2540fedb85c" class="image"><a href="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%203.png"><img style="width:352px" src="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%203.png"/></a></figure><p id="a9c95647-c7f3-4faf-a584-d5da35e32dd1" class="">
+</p><p id="db4ea739-cf8c-45a1-97be-976e341813b3" class="">4- Clique duas vezes no instalador. </p><p id="ab9f7208-bfd6-4f16-a166-c3eda47d538e" class="">Aqui ficam as configurações do Git. Nada aqui precisa ser alterado, então você pode clicar em “next” ate que apareça a opção “install” </p><p id="b2e9d9c5-76e6-4784-9284-26632021c85b" class="">
+</p><figure id="2869d938-dc44-4743-8a7b-8e36a245f32e" class="image"><a href="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%204.png"><img style="width:432px" src="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%204.png"/></a></figure><figure id="a13467cd-93de-4280-b1a0-557ca5b267c2" class="image"><a href="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%205.png"><img style="width:432px" src="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%205.png"/></a></figure><p id="5e78470e-1317-4a00-80ad-47c318e8034e" class="">
+</p><p id="3a459d02-c492-4958-bbf7-717d7a4b7b9e" class="">5- Espere a instalação</p><figure id="00532a1c-85c3-4ea7-9fab-8df916dcf8ce" class="image"><a href="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%206.png"><img style="width:432px" src="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%206.png"/></a></figure><p id="ce118a46-2cab-4cbd-8d26-5556a56112d7" class="">
+</p><p id="99e3203b-972a-4789-b227-7e6877663842" class="">6- Clique em “finish”. </p><p id="d99b5d0e-e0aa-40c2-9fd5-cad6721810af" class="">
+</p><figure id="6e34143c-c9f9-4986-ad00-181734372049" class="image"><a href="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%207.png"><img style="width:528px" src="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%207.png"/></a></figure><p id="ab17db31-6953-48c0-a433-9ab976c934cf" class="">
+</p><p id="8c3f6ffc-0697-498c-baa9-3937039dafde" class="">E pronto! Nem foi tão difícil assim. Agora só continuar seguindo o nosso tutorial.</p></div></details></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Iniciação ao GitHub</summary><div class="indented"><p id="76d3ab3a-8c20-4af9-8666-e514b52805d4" class="">Para começar a usar o GitHub, primeiro você precisa criar uma conta. Acesse <a href="https://github.com/">https://github.com</a> e clique em &quot;Sign up&quot;. Preencha as informações necessárias e siga as instruções na tela. Uma vez que sua conta esteja criada, você pode começar a criar seus próprios repositórios e colaborar com outros projetos.</p><p id="3fb50026-7604-48dc-91ee-fe733891c201" class="">
+</p><p id="e7adfdc0-e0b7-4c21-9390-6851a63c34ac" class="">Eu imagino que você já tenha conta, mas se não eu acredito no seu potencial. </p></div></details><p id="5957c3a2-3c78-4ff9-9b4a-287675bd2071" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Começando um repositório</summary><div class="indented"><p id="b70e7db2-d9dd-4851-a6a7-8bdae9352c3d" class="">Para começar um repositório Git, primeiro você precisa criar um novo diretório no seu computador. Você pode fazer isso navegando até o local onde você deseja que o novo repositório esteja. Por exemplo, se você quiser criar um novo repositório na sua pasta Documentos, primeiro você navega até a pasta Documentos.</p><p id="864bc478-bbdf-47e6-8054-cca0a8681080" class="">Uma vez que você esteja no diretório desejado, você pode criar um novo diretório para o seu repositório. Clique com o botão direito do mouse em um espaço vazio dentro do diretório e selecione a opção &quot;Novo &gt; Pasta&quot; do menu que aparece. Digite o nome que você deseja para o seu repositório e pressione Enter.</p><p id="a7652512-a485-4b98-9e18-9b27270bdc68" class="">Agora que você tem um novo diretório, você pode inicializá-lo como um repositório Git. Para fazer isso, clique com o botão direito do mouse na pasta que você acabou de criar e selecione &quot;Git Bash Here&quot; do menu que aparece. Isso abrirá um terminal Git Bash.</p><p id="3cecc1cf-3e9d-4e7d-9a1a-3ee87dbdfdfb" class="">No terminal, digite o comando <code>git init</code>. Este comando inicializa um novo repositório Git no diretório atual. Você deve ver uma mensagem dizendo &quot;Initialized empty Git repository in [seu diretório]&quot;. Isso significa que você agora tem um repositório Git vazio pronto para você começar a adicionar e controlar arquivos.</p><p id="e5bdac36-c11b-45bb-b5ac-3ad960c26b38" class="">Pronto! Agora você tem um repositório Git vazio, pronto para você começar a usar. A partir daqui, você pode começar a adicionar arquivos ao seu repositório, fazer commits de suas alterações e muito mais.</p><p id="8dfbd59d-5a58-4306-ba13-95834d22cd39" class="">
+</p><p id="523a2197-bd3e-4c77-9010-ed19b7e1f40c" class="">A partir daqui temos dois caminhos principais :</p><ul id="b780bf82-be05-4c7a-a77c-bf02d51a5ae6" class="bulleted-list"><li style="list-style-type:disc">Criar um repositório local e subir para a nuvem</li></ul><ul id="7c4cf48b-eaec-47a9-936f-2cf702ad4c57" class="bulleted-list"><li style="list-style-type:disc">Clonar um repositório remoto existente para a sua maquina</li></ul><p id="c9910637-689c-46a9-b834-c22e88529a2e" class="block-color-red"><mark class="highlight-purple">*Para qualquer uma das situações o </mark><mark class="highlight-purple"><code>git init</code></mark><mark class="highlight-purple"> é necessário, ou seja não esqueça dele!!!</mark></p><p id="1675f87e-17d9-4315-855b-17a52ed6e30f" class="block-color-red"><mark class="highlight-purple"> </mark></p><h2 id="81e34dce-3874-48c1-aff9-777166428073" class="block-color-red"><mark class="highlight-purple">IMPORTANTE!!!!</mark></h2><p id="cca3fab9-1427-48bd-b94a-f4c8b6ebe626" class="">Por padrão a branch principal do Git vem nomeada como master. Porem a comunidade tecnológica entrou em consenso que esse termo  é racista e não deve ser utilizado. Todos os comandos a seguir assumem que o nome da sua branch já foi alterada, mas caso ainda esteja como master utilize esse comando</p><ul id="df2a5851-198c-407a-a1ce-515635583b3b" class="bulleted-list"><li style="list-style-type:disc">Comando para mudar o nome da branch</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="19d6b99d-5f43-4ad3-88fa-cf3132f35f95" class="code"><code class="language-Shell">git branch -M main</code></pre><p id="4d1092a0-fd94-4892-b18b-826603e39af0" class="">
+</p><p id="05685037-a011-41b6-870c-4b85a7e808e4" class="">
+</p><p id="908b3b23-3168-4e79-bfcc-9a61c038257b" class="">O próprio GitHub oferece opções de código para você iniciar seu repositório, mas caso haja duvida olha algum dos tutoriais abaixo:</p><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Criar um repositório local e subir para a nuvem</summary><div class="indented"><p id="14ee8081-bdb1-4646-a8b2-5ef50ce48543" class="">Com sua pasta já criada e o Git iniciado você apenas a alguns passos de enviar seu repositório local para a nuvem. </p><p id="448b1761-5e33-4fc6-936a-4872d9a735b5" class="">
+</p><p id="4c7c9c5c-a25c-468d-9a79-f9c55fc0d705" class="">Primeiro você precisa criar o repositório remoto que guardará seus projetos no Github.</p><p id="289787cb-da5e-4d51-a57a-cc267e22269a" class="">Isso pode ser feito rapidamente através do botão “new” localizado na home:</p><figure id="6f79bf9f-6d6d-4e35-bac1-937f5a247cf8" class="image"><a href="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%208.png"><img style="width:288px" src="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%208.png"/></a></figure><p id="48bda814-4937-4d93-80d0-0c9e0b865260" class="">
+</p><p id="39d2aa61-dfab-43fa-b48d-f55f9a257100" class="">Você terá que colocar preencher algumas informações como nome, privacidade e descrição (opcional), depois apenas clique em “create repository”.</p><p id="9bba82a7-733c-4da6-be1f-ca4140480281" class="">
+</p><p id="01beaf16-ba95-436a-8508-f3a5930a4a1e" class="">Agora na linha de comando (Git Bash, Powershell ou qualquer um que você estiver usando) você vai precisar digitar o seguinte comando:</p><p id="8f49893a-9c4f-42b2-a731-d8f2efbf0bb3" class="">
+</p><ul id="9bba009d-15ad-4f81-a529-0083c95facdb" class="bulleted-list"><li style="list-style-type:disc">Criando conexão com o repositório remoto</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="dee4f933-3d6d-462c-b854-2497af7919dc" class="code"><code class="language-Shell"> git remote add origin (linkDoGitHub)</code></pre><figure id="b3b30cbf-5c09-4c56-b796-6bd90477cb7b" class="image"><a href="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%209.png"><img style="width:624px" src="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%209.png"/></a></figure><p id="f041fe27-619d-44ba-b72a-2e2384b2c01d" class="">
+</p><p id="6f14d1bf-e502-4519-9441-95671d363ebb" class="">Agora você precisa subir os arquivos que estão na sua maquina, os comandos é :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2a8771be-b11c-4707-b820-edfff9fdd7e4" class="code"><code class="language-Shell">git add .</code></pre><p id="8d5c9248-8011-479b-8fc5-d226fbb4bed9" class="">irá adicionar todos os arquivos do diretório para o Git. </p><figure id="931c2abf-5177-48c1-95a1-0469f317cf60" class="image"><a href="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%2010.png"><img style="width:624px" src="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%2010.png"/></a></figure><p id="109facf3-8077-4eff-a8b0-e48e68b7e41b" class="">
+</p><p id="61872777-1798-4bf8-9fe9-58140ff1e64d" class="">Em seguida, você precisa fazer um commit, que é uma espécie de &quot;salvamento&quot; do seu projeto até aquele ponto.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="3d85b765-039d-4839-8397-d77e13860416" class="code"><code class="language-Shell" style="white-space:pre-wrap;word-break:break-all">git commit -m &quot;mensagem legal&quot;
+</code></pre><figure id="969da9d4-584a-4be3-9bb4-34ca74028ff9" class="image"><a href="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%2011.png"><img style="width:624px" src="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%2011.png"/></a></figure><p id="bc8798b8-b084-49cd-97d9-f10e8ff03d9f" class="">
+</p><p id="44f24fc4-c604-4a95-93e9-01e2de846dfa" class="">Por fim, você precisa &#x27;empurrar&#x27; essas alterações para o GitHub com o comando:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ae68505e-9762-44a8-b4e7-09c136df66e4" class="code"><code class="language-Shell" style="white-space:pre-wrap;word-break:break-all">git push origin main
+</code></pre><figure id="6892e3f9-8cac-4d70-89c5-6593b426aaf9" class="image"><a href="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%2012.png"><img style="width:576px" src="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%2012.png"/></a></figure><p id="609b3df9-14d2-46ba-93f8-0fc18cc72128" class="">
+</p><p id="12b322b7-f189-4e07-ba90-3b448807fe6a" class="">
+</p><p id="e3826b72-f949-4c22-a69d-7b8545ec4cbf" class="">Prontinho! Agora seu repositório já está no ar.</p></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Clonar um repositório remoto existente para a sua maquina</summary><div class="indented"><p id="7120346c-82d6-4d8b-8397-78960b7b971c" class="">Para usar um repositório remoto já existente você precisa do comando “git clone”</p><p id="62801307-9ba7-451d-a9f9-a8c997e574ca" class="">
+</p><p id="ba46cfbd-dfd0-4f44-a295-dc83851d3547" class="">siga os passos abaixo:</p><p id="a54faeb2-9e2c-4de3-b64a-029fddb6aac3" class="">
+</p><ul id="9fbe7809-c93e-4d5a-8bfe-a47d180de33a" class="bulleted-list"><li style="list-style-type:disc">Copiando link do repositório remoto</li></ul><figure id="bfa63ae6-cc14-4ac1-b440-8c8bd470e0fc" class="image"><a href="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%2013.png"><img style="width:624px" src="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%2013.png"/></a></figure><p id="b1aea44d-18cd-4649-bb21-5234c287f550" class="">
+</p><ul id="4713bb88-9219-446b-a463-f9daa6d500e8" class="bulleted-list"><li style="list-style-type:disc">Comando para clonar o repositório</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8d4bd725-40ea-40ac-b122-fa7232ea4c6d" class="code"><code class="language-Shell">git clone (linkDoGitHub)</code></pre><figure id="8ee8ffb0-e036-44f0-9fe4-6d6c7789740a" class="image"><a href="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%2014.png"><img style="width:624px" src="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Untitled%2014.png"/></a></figure><p id="8e83eb7c-0075-4ed4-96b5-799ae55f7c41" class="">
+</p><p id="c71ddf98-cc4b-42a9-a40f-413caec75b0a" class="">
+</p><p id="d7dd9638-0439-446b-b61f-6cc0a69842e1" class="">
+</p></div></details></div></details><p id="2ea0eb00-6de2-4ecd-9119-60da684f1e2e" class="">
+</p><hr id="e8f4635b-0944-46bb-9c4f-9f0b9518965f"/><p id="47a6aae5-828f-4932-80d4-c002ac225172" class="">
+</p><div id="e540707d-3d23-4da9-8903-04da78ab0f70" class="column-list"><div id="71587907-ba39-4d70-9030-e17fba9f1ab2" style="width:49.99999999999999%" class="column"><h3 id="bf2b779a-2f55-4b2c-988c-20b822fe2008" class="">Agora que você já sabe o básico vou deixar uma lista de comandos principais. Boa sorte!</h3><p id="7b627d34-93c8-45ca-bc53-bca44ed7ac26" class="">
+</p><figure id="24119a0e-5a0b-49e5-a0b2-a2475884389a" class="link-to-page"><a href="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/Comandos%20Principais%2024119a0e5a0b49e5a0b2a2475884389a.html"><img class="icon" src="https://www.notion.so/icons/command-line_purple.svg"/>Comandos Principais</a></figure><p id="d35bee86-86d5-4c44-9e91-f2828c3f61a7" class="">
+</p></div><div id="a3488b8a-fca3-4017-8863-75e3440ab8a2" style="width:4.166666666666666%" class="column"><p id="921ad540-b974-4d3e-a1a9-b8e68409c9c4" class="">
+</p><p id="873cca9f-5bf7-4f70-8cae-6aeb96b2c052" class="">
+</p></div><div id="0dde164e-82dc-4af5-8797-fe9528b7263e" style="width:45.83333333333332%" class="column"><h3 id="629b811e-0674-4293-a0ea-b1ad3dc82934" class="">Caso você tenha interesse me aprender mais sobre Git/GitHub você pode continuar por aqui:</h3><p id="d6e01d36-aea6-4594-a689-ae45384ec19d" class=""> </p><figure id="2b066f0f-4e7b-4050-93c8-99e89db312b9" class="link-to-page"><a href="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/git%20actions%202b066f0f4e7b405093c899e89db312b9.html"><img class="icon" src="https://www.notion.so/icons/new-alert_purple.svg"/>git actions</a></figure><figure id="6677241f-58dc-4a15-8922-b7a4215aba0c" class="link-to-page"><a href="Tutorial%20Git%203b1c6b776b8943578a03a30ba25c9f60/gitignore%206677241f58dc4a158922b7a4215aba0c.html"><img class="icon" src="https://www.notion.so/icons/help-alternate_purple.svg"/>.gitignore</a></figure></div></div><hr id="5eda4a0e-c8f4-44e4-9ccd-1eadc744b559"/><p id="5511b1f0-7eb1-4881-a246-69b6dfffd370" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
