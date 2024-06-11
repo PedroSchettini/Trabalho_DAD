@@ -31,7 +31,7 @@ close.addEventListener('click', () => {
 })
 
 btnStudent.addEventListener('click', () => {
-    window.location.replace('../principal/index.html')
+    window.location.assign('../principal/index.html')
     localStorage.setItem('gameType', 1)
     if(!phases){
       localStorage.setItem('phases', JSON.stringify([1]))
