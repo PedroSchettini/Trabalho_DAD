@@ -4,15 +4,225 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" href="../../assets/gitinho_degrade.png" type="x-icon">
+    <script src="./main.js" defer></script>
     <title>Fase 3</title>
 </head>
 <body>
     <img id="fundo_fase" src="../../assets/imagem_fases.png" alt="imagem_fases">
     <article>
         <img id="grayCat" class="cat" src="../../assets/gitinho_degrade.png" alt="grayCat">
-        <div class="boxContents">
-            <p class="title">O que é git?</p>
-            <p class="explanation">Git é uma ferramenta que ajuda os desenvolvedores a controlar as diferentes versões do seu código ao longo do tempo. </p>
+        <div id="step1" class="boxContents">
+            <h3 class="title" id="comGerais"><strong class="ciano">Comandos gerais</strong></h3>
+            <p id="exemplosGerais">Aqui estão alguns exemplos de comandos gerais importantes do <strong class="yellow">git</strong>:</p>
+            <p> <span class="citation">"git init"</span> -> inicializa um repositório local</p>
+            <p><span class="citation">“git status”</span> -> exibe o estado atual do repositório, incluindo arquivos modificados e não rastreados.</p>
+            <p><span class="citation">“git add .”</span> -> prepara todos os arquivos para salvar</p>
+            <p><sp class="citation">“git commit -m “&ltmensagem&gt” ”</sp> -> salvar alterações</p>
+            <p><span class="citation">“git push origin &ltnomeDaBranch&gt”</span> -> envia para o repositório remoto</p>
+            <p><span class="citation">“git clone &ltlinkRepositorio&gt”</span> -> clona um repositório existente do GitHub para um novo diretório local.</p>
+
+            <div class="btn_box">
+                <div id="btn_next_step1" class="btn_next">Próximo</div>
+            </div>
+        </div>
+
+        <div id="step2" class="boxContents invisible boxWithTerminal">
+            <div class="open_folder_terminal">
+                <img id="folder_terminal" src="../../assets/open_folder.png" alt="Pasta aberta" class="iconImg" style="cursor: initial;">
+                <div>
+                    <p>Vamos verificar como estão os arquivos do seu projeto. Para isso nós utilizamos o  <span class="citation">“git status”</span> que exibe o estaus atual do repositório de trabalho.</p>
+                    <p>Nós podemos verificar se os arquivos foram adicionados, modificados e deletados.</p>
+                    <p>Teste esse comando no nosso terminal.</p>
+                </div>
+            </div>
+            <div class="terminal">
+                <p style="margin-top: 1rem; margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong> <strong class="green">(main)</strong></p>
+                $ <input type="text" name="" class="input_terminal" id="step2_input">
+            </div>
+        </div>
+
+        <div id="step3" class="boxContents invisible">
+            <div class="open_folder_terminal">
+                <img id="folder_terminal" src="../../assets/open_folder.png" alt="Pasta aberta" class="iconImg" style="cursor: initial;">
+                <div>
+                    <p>Vamos verificar como estão os arquivos do seu projeto. Para isso nós utilizamos o  <span class="citation">“git status”</span> que exibe o estaus atual do repositório de trabalho.</p>
+                    <p>Nós podemos verificar se os arquivos foram adicionados, modificados e deletados.</p>
+                    <p>Teste esse comando no nosso terminal.</p>
+                </div>
+            </div>
+            <div class="terminal">
+                <p style="margin-top: 1rem; margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong> <strong class="green">(main)</strong></p>
+
+                <p class="margin_git">$ git status</p>
+                <p>Untracked files:</p>
+                <p id="indentacao1">(use "git add $&ltfile&gt..." to include in what will be committed)</p>
+                <p class="red" id="indentacao2">modified: gitinho.txt</p>
+                
+                <p style="margin-top: 1rem; margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong> <strong class="green">(main)</strong></p>
+                <p>$</p>
+            </div>
+
+            <div class="btn_box">
+                <div id="btn_next_step3" class="btn_next bt_margin">Próximo</div>
+            </div>
+        </div>
+
+        <div id="step4" class="boxContents invisible boxWithTerminal">
+            <div class="open_folder_terminal">
+                <img id="folder_terminal" src="../../assets/open_folder.png" alt="Pasta aberta" class="iconImg" style="cursor: initial;">
+                <div>
+                    <p>Agora que já aprendemos alguns comandos do git. Imagine que você realizou uma alteração no seu projeto e você precisa atualizar o repositório remoto:</p>
+                    <p>Para adicionar as alterações digite o seguinte comando:</p>
+                    <p><span class="citation">“git add ."</span></p>
+                </div>
+            </div>
+            <div class="terminal">
+                <p style="margin-top: 1rem; margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong> <strong class="green">(main)</strong></p>
+                $ <input type="text" name="" class="input_terminal" id="step4_input">
+            </div>
+        </div>
+
+        <div id="step5" class="boxContents invisible">
+            <div class="open_folder_terminal">
+                <img id="folder_terminal" src="../../assets/open_folder.png" alt="Pasta aberta" class="iconImg" style="cursor: initial;">
+                <div>
+                    <p>Agora que já aprendemos alguns comandos do git. Imagine que você realizou uma alteração no seu projeto e você precisa atualizar o repositório remoto:</p>
+                    <p>Para adicionar as alterações digite o seguinte comando:</p>
+                    <p><span class="citation">“git add ."</span></p>
+                </div>
+            </div>
+            <div class="terminal">
+                <p style="margin-top: 1rem; margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong> <strong class="green">(main)</strong></p>
+                <p>$ git add .</p> 
+
+                <p style="margin-top: 1rem; margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong> <strong class="green">(main)</strong></p>
+                <p>$</p>
+            </div>
+
+            <div class="btn_box">
+                <div id="btn_next_step5" class="btn_next bt_margin">Próximo</div>
+            </div>
+        </div>
+
+        <div id="step6" class="boxContents invisible boxWithTerminal">
+            <div class="open_folder_terminal">
+                <img id="folder_terminal" src="../../assets/open_folder.png" alt="Pasta aberta" class="iconImg" style="cursor: initial;">
+                <p>Para sabermos se os arquivos já estão preparados para salvar usamos novamente o <span class="citation">“git status”</span> para vermos a diferença</p>
+            </div>
+            <div class="terminal">
+                <p style="margin-top: 1rem; margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong> <strong class="green">(main)</strong></p>
+                $ <input type="text" name="" class="input_terminal" id="step6_input">
+            </div>
+        </div>
+
+        <div id="step7" class="boxContents invisible">
+            <div class="open_folder_terminal">
+                <img id="folder_terminal" src="../../assets/open_folder.png" alt="Pasta aberta" class="iconImg" style="cursor: initial;">
+                <p>Para sabermos se os arquivos já estão preparados para salvar usamos novamente o <span class="citation">“git status”</span> para vermos a diferença</p>
+            </div>
+            <div class="terminal">
+                <p style="margin-top: 1rem; margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong> <strong class="green">(main)</strong></p>
+
+                <p class="margin_git">$ git status</p>
+                <p>Changes to be committed:</p>
+                <p id="identacao1">(use "git rm --cached &ltfile&gt..." to unstage)</p>
+                <p class="greenGStatus" id="identacao2">modified: gitinho.txt</p>
+                
+                <p style="margin-top: 1rem; margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong> <strong class="green">(main)</strong></p>
+                <p>$</p>
+            </div>
+
+            <div class="btn_box">
+                <div id="btn_next_step7" class="btn_next bt_margin">Próximo</div>
+            </div>
+        </div>
+
+        <div id="step8" class="boxContents invisible boxWithTerminal">
+            <div class="open_folder_terminal">
+                <img id="folder_terminal" src="../../assets/open_folder.png" alt="Pasta aberta" class="iconImg" style="cursor: initial;">
+                <div>
+                    <p>Agora que os seus arquivos ja estão preparados para salvar vamos salva-los com o seguinte código:</p>
+                    <p><span class="citation">“git commit -m “&ltmensagem&gt” ”</span></p>
+                    <p>(Coloque a seguinte mensagem: atualizando os arquivos)</p>
+                </div>
+            </div>
+
+            <div class="terminal">
+                <p style="margin-top: 1rem; margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong> <strong class="green">(main)</strong></p>
+                $ <input type="text" name="" class="input_terminal" id="step8_input">
+            </div>
+        </div>
+
+        <div id="step9" class="boxContents invisible">
+            <div class="open_folder_terminal">
+                <img id="folder_terminal" src="../../assets/open_folder.png" alt="Pasta aberta" class="iconImg" style="cursor: initial;">
+                <div>
+                    <p>Agora que os seus arquivos ja estão preparados para salvar vamos salva-los com o seguinte código:</p>
+                    <p><span class="citation">“git commit -m “&ltmensagem&gt” ”</span></p>
+                </div>
+            </div>
+
+            <div class="terminal">
+                <p style="margin-top: 1rem; margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong> <strong class="green">(main)</strong></p>
+
+                <p class="margin_git">$ git commit -m “atualizando os arquivos”</p>
+                <p>[main 9b4d173] “atualizando os arquivos”</p>
+                <p>2 file changed, 1 insertion(+), 1 deletion(-)</p>
+                
+                <p style="margin-top: 1rem; margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong> <strong class="green">(main)</strong></p>
+                <p>$</p>
+            </div>
+
+            <div class="btn_box">
+                <div id="btn_next_step9" class="btn_next bt_margin">Próximo</div>
+            </div>
+        </div>
+
+        <div id="step10" class="boxContents invisible boxWithTerminal">
+            <div class="open_folder_terminal">
+                <img id="folder_terminal" src="../../assets/open_folder.png" alt="Pasta aberta" class="iconImg" style="cursor: initial;">
+                <div>
+                    <p>Todos os arquivos já estão salvos prontinhos para enviar, e para isso nós usaremos o seguinte código:</p>
+                    <p><span class="citation">“git push origin &ltnomeDaBranch&gt”</span></p>
+                    <p>(no lugar do nome da branch coloque <span class="citation">“main”</span>, pois é a branch que estamos usando)</p>
+                </div>
+            </div>
+
+            <div class="terminal">
+                <p style="margin-top: 1rem; margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong> <strong class="green">(main)</strong></p>
+                $ <input type="text" name="" class="input_terminal" id="step10_input">
+            </div>
+        </div>
+
+        <div id="step11" class="boxContents invisible">
+            <div class="open_folder_terminal">
+                <img id="folder_terminal" src="../../assets/open_folder.png" alt="Pasta aberta" class="iconImg" style="cursor: initial;">
+                <div>
+                    <p>Prontinho!! seus arquivos foram enviados para a main.</p>
+                </div>
+            </div>
+            
+            <div class="terminal">
+                <p style="margin-top: 1rem; margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong> <strong class="green">(main)</strong></p>
+
+                <p class="margin_git">$ git push origin main</p>
+                <p>Enumerating objects: 5, done.</p>
+                <p>Counting objects: 100% (5/5), done.</p>
+                <p>Delta compression using up to 8 threads</p>
+                <p>Compressing objects: 100% (2/2), done.</p>
+                <p>Writing objects: 100% (3/3), 307 bytes | 102.00 KiB/s, done.</p>
+                <p>Total 3 (delta 1), reused 0 (delta 0), pack-reused 0</p>
+                <p>remote: Resolving deltas: 100% (1/1), completed with 1 local object.</p>
+                <p>To https://github.com/gitinho/Aula.git</p>
+                <p id="indentacao1">915f65e..9b4d173  main -> main</p>
+                
+                <p style="margin-top: 1rem; margin-bottom: 0.5rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong> <strong class="green">(main)</strong></p>
+                <p>$</p>
+            </div>
+
+            <div class="btn_box">
+                <div id="btn_next_step11" class="btn_next bt_margin">Próximo</div>
+            </div>
         </div>
     </article>
 </body>

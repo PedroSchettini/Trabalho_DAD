@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+}
+
+#background_phase{
+    position:absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+.pageWrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxContents{
+    width: 70%;
+    height: 70vh ;
+    background-color: white;
+    border-radius: 20px;
+    opacity: 95%;
+    padding: 2rem;
+    word-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardOption{
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.boxCards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 3rem;
+    gap: 1rem;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 50px;
+    font-size: 1.5rem;
+}
+
+.box {
+    width: 100px;
+    height: 50px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    margin: 10px;
+    cursor: move;
+    user-select: none;
+}
+  
+.box.correct {
+    background-color: lightgreen;
+}
+
+.dropzone {
+    width: fit-content;
+    min-width: 120px;
+    height: 40px;
+    background-color: #FD9BC3;
+    border: 2px solid #8E8CFF;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.draggable {
+    width: 120px;
+    height: 40px;
+    background-color: #FFE59C;
+    border: 2px solid #64BC82;
+    cursor: move;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.draggable.correct {
+    background-color: lightgreen;
+}
+
+.initial_dropzone{
+    padding: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.locked {
+    pointer-events: none;
+    background-color: #ccc;
+    border-color: #ccc;
+    cursor: not-allowed;
+}
+
+.cardOptionBox{
+    width: 150px;
+    height: 75px;
+    border-radius: 10px;
+    font-weight: 700;
+    background-color: #54A7F3;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: move;
+    user-select: none;
+}

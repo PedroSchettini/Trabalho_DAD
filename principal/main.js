@@ -16,10 +16,10 @@ if(gameType == 1){
         phasesArray[i].classList.remove('unlocked')
     }
 }
-
+console.log(phase3.classList)
 if(!!phase1.classList[1]){
     phase1.addEventListener('click', () => {
-        window.location.assign('../fase1/index.html')
+        window.location.assign('../fases/fase 1/index.html')
     })
 }
 if(!!phase2.classList[1]){

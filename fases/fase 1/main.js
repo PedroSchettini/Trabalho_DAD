@@ -86,8 +86,10 @@ btn_next_step10.addEventListener('click', () => {
     let phases = localStorage.getItem('phases')
     phases = JSON.parse(phases)
     if(gametype == '1'){
-        phases.push(2)
-        localStorage.setItem('phases', JSON.stringify(phases))
+        if(phases.indexOf(2) == -1){
+            phases.push(2)
+            localStorage.setItem('phases', JSON.stringify(phases))
+        }
     }
     window.location.replace('./../../principal/index.html')
 })

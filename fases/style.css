@@ -43,6 +43,27 @@ article{
     justify-content: space-between;
 }
 
+#exemplosGerais{
+    position: relative;
+    top: -30px;
+}
+
+#comGerais{
+    margin-top: 20px;
+}
+
+#imgPasta{
+    display: inline-block;
+    width: min-content;
+    background-color: #0CF587;
+}
+
+#gitStatus{
+    display: inline-block;
+    width: 400px;
+    background-color: #221EC3;
+}
+
 .title{
     margin-bottom: 3rem;
 }
@@ -66,6 +87,12 @@ article{
 .green{
     color: #0CF587;
 }
+
+.greenGStatus{
+    color: rgba(34, 227, 17, 1);
+}
+
+
 
 .btn_next{
     background-color: #9694fc;
@@ -153,4 +180,126 @@ background-color: #706EFA;
   background-color: #4d4d67;
   margin-left: 5px;
   color: white;
+}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+}
+
+#fundo_fase{
+    position:absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+article{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cat{
+    width: 250px;
+    height: 250px;
+    margin-top: 290px;
+    margin-left: 30px;
+}
+
+.boxContents{
+    width: 60vw;
+    height: 70vh ;
+    background-color: white;
+    margin-left: 100px;
+    border-radius: 20px;
+    opacity: 95%;
+    padding: 20px;
+    word-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#exemplosGerais{
+    position: relative;
+    top: -30px;
+}
+
+#indentacao1{
+    margin-left: 10px;
+}
+
+#indentacao2{
+    margin-left: 22px;
+}
+
+.bt_margin{
+    margin-top: 40px;
+}
+
+.margin_git{
+    margin-bottom: 8px;
+}
+
+.title{
+    margin-bottom: 3rem;
+}
+
+.yellow{
+    color: #FFA014;
+}
+
+.blue{
+    color: #221EC3;
+}
+
+.purple{
+    color: #741DA1;
+}
+
+.ciano{
+    color: rgba(71, 185, 222, 1);
+}
+
+
+.btn_next{
+    background-color: #9694fc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    float: right;
+    width: 25%;
+}
+
+.btn_next{
+    background-color: #9694fc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    float: right;
+    width: 25%;
+}
+ 
+.btn_next:hover{
+background-color: #706EFA;
+}
+
+.invisible{
+    display: none;
+}
+
+.btn_box{
+    width: 100%;
 }
