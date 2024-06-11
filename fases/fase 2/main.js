@@ -29,9 +29,9 @@ btn_next_step_final.addEventListener('click', () => {
     let gametype = localStorage.getItem('gameType')
     let phases = localStorage.getItem('phases')
     phases = JSON.parse(phases)
-    if(gametype == '1'){
-        if(phases.indexOf(2) == -1){
-            phases.push(2)
+    if(gametype == '2'){
+        if(phases.indexOf(3) == -1){
+            phases.push(3)
             localStorage.setItem('phases', JSON.stringify(phases))
         }
     }

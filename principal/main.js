@@ -24,12 +24,12 @@ if(!!phase1.classList[1]){
 }
 if(!!phase2.classList[1]){
     phase2.addEventListener('click', () => {
-        window.location.replace('../principal/index.html')
+        window.location.replace('../fases/fase 2/index.html')
     })
 }
 if(!!phase3.classList[1]){
     phase3.addEventListener('click', () => {
-        window.location.replace('../principal/index.html')
+        window.location.replace('../fases/fase 3/index.html')
     })
 }
 if(!!phase4.classList[1]){
