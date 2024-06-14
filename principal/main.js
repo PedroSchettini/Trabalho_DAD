@@ -8,7 +8,7 @@ phase3 = document.querySelector('#phase3')
 phase4 = document.querySelector('#phase4')
 phase5 = document.querySelector('#phase5')
 phase6 = document.querySelector('#phase6')
-let phasesArray = [phase1, phase2, phase3, phase4, phase5, phase6]
+let phasesArray = [phase1, phase2, phase3]
 
 if(gameType == 1){
     for(let i = 5; i >= phases.length; i--){
@@ -24,26 +24,26 @@ if(!!phase1.classList[1]){
 }
 if(!!phase2.classList[1]){
     phase2.addEventListener('click', () => {
-        window.location.replace('../principal/index.html')
+        window.location.assign('../fases/fase 2/index.html')
     })
 }
 if(!!phase3.classList[1]){
     phase3.addEventListener('click', () => {
-        window.location.replace('../principal/index.html')
+        window.location.assign('../fases/fase 3/index.html')
     })
 }
-if(!!phase4.classList[1]){
-    phase4.addEventListener('click', () => {
-        window.location.replace('../principal/index.html')
-    })
-}
-if(!!phase5.classList[1]){
-    phase5.addEventListener('click', () => {
-        window.location.replace('../principal/index.html')
-    })
-}
-if(!!phase6.classList[1]){
-    phase6.addEventListener('click', () => {
-        window.location.replace('../principal/index.html')
-    })
-}
+// if(!!phase4.classList[1]){
+//     phase4.addEventListener('click', () => {
+//         window.location.replace('../principal/index.html')
+//     })
+// }
+// if(!!phase5.classList[1]){
+//     phase5.addEventListener('click', () => {
+//         window.location.replace('../principal/index.html')
+//     })
+// }
+// if(!!phase6.classList[1]){
+//     phase6.addEventListener('click', () => {
+//         window.location.replace('../principal/index.html')
+//     })
+// }

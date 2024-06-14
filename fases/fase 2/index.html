@@ -4,15 +4,90 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" href="../../assets/gitinho_cinza.png" type="x-icon">
+    <script src="./main.js" defer></script>
     <title>Fase 2</title>
 </head>
 <body>
     <img id="fundo_fase" src="../../assets/imagem_fases.png" alt="imagem_fases">
     <article>
         <img id="grayCat" class="cat" src="../../assets/gitinho_cinza.png" alt="grayCat">
-        <div class="boxContents">
-            <p class="title">O que é git?</p>
-            <p class="explanation">Git é uma ferramenta que ajuda os desenvolvedores a controlar as diferentes versões do seu código ao longo do tempo. </p>
+        
+        <!-- - - - - - - - - - - - - - - - Fase 2.1 - - - - - - - - - - - - - - - -->
+        <div id='step1' class="boxContents">
+            <div>
+                <h3 class="title">O que é uma <strong class="purple">branch</strong>?</h3>
+                <p>Uma <strong class="purple">branch</strong> é uma linha de desenvolvimento separada da principal (geralmente chamada de "<strong class="green">main</strong>" ou "<strong class="green">master</strong>"), onde você pode trabalhar funcionalidades ou correções sem afetar diretamente o código principal. É como uma cópia do projeto onde você pode experimentar novas ideias.</p>
+                <br>
+                <p>Depois de fazer as alterações em uma <strong class="purple">branch</strong> e testá-las, você pode mesclá-las de volta na <strong class="purple">branch</strong> principal.</p>
+            </div>
+            <div class="btn_box">
+                <div id="btn_next_step1" class="btn_next">Próximo</div>
+            </div>
+        </div>
+
+        <!-- - - - - - - - - - - - - - - - Fase 2.2 - - - - - - - - - - - - - - - -->
+        <div id='step2' class="boxContents invisible boxWithTerminal">
+            <div class="open_folder_terminal">
+                <img id="folder_terminal" src="../../assets/open_folder.png" alt="Pasta aberta" class="iconImg" style="cursor: initial;">
+                <div>
+                    <p>Para criar uma branch digite o seguinte comando: </p>
+                    <p class="citation">"git branch &lt;nomedaBranch&gt;"</p>
+                    <br>
+                    <p>(Coloque o nome da branch como "gitinho")</p>
+                </div>
+            </div>
+            <div class="terminal" style="height: 45%;">
+                <p style="margin-bottom: 1rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong></p>
+                $ <input type="text" name="" class="input_terminal" id="step4_input">
+                <p style="margin-top: 1rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong><strong class="green">(gitinho)</strong></p>
+                $ 
+            </div>
+            <div class="btn_box" style="margin-top: 3rem;">
+                <div id="btn_next_step2" class="btn_next">Próximo</div>
+            </div>
+        </div>
+
+        <!-- - - - - - - - - - - - - - - - Fase 2.3 - - - - - - - - - - - - - - - -->
+        <div id='step3' class="boxContents invisible boxWithTerminal">
+            <div class="open_folder_terminal">
+                <img id="folder_terminal" src="../../assets/open_folder.png" alt="Pasta aberta" class="iconImg" style="cursor: initial;">
+                <div>
+                    <p>Agora que aprendemos como criar uma branch, vamos voltar para a main para continuarmos a nossa aula. 
+                        Digite o seguinte comando</p>
+                    <p class="citation">"git checkout &lt;nomedaBranch&gt;"</p>
+                    <br>
+                    <p>Lembrando que vamos para a gitinho, ent coloque o nome da branch como "gitinho"</p>
+                </div>
+            </div>
+            <div class="terminal" style="height: 45%;">
+                <p style="margin-bottom: 1rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong><strong class="green">(main)</strong></p>
+                $ <input type="text" name="" class="input_terminal" id="step4_input">
+                <p style="margin-top: 1rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong><strong class="green">(gitinho)</strong></p>
+                $ 
+            </div>
+            <div class="btn_box" style="margin-top: 3rem;">
+                <div id="btn_next_step3" class="btn_next">Próximo</div>
+            </div>
+        </div>
+
+        <!-- - - - - - - - - - - - - - - - Fase 2.4 - - - - - - - - - - - - - - - -->
+        <div id='step4' class="boxContents invisible boxWithTerminal">
+            <div class="open_folder_terminal">
+                <img id="folder_terminal" src="../../assets/open_folder.png" alt="Pasta aberta" class="iconImg" style="cursor: initial;">
+                <div>
+                    <p>Agora para podermos pegar as alterações feitas dentro da branch nós iremos usar o seguinte comando:</p>
+                    <p class="citation">"git pull origin main"</p>
+                </div>
+            </div>
+            <div class="terminal" style="height: 45%;">
+                <p style="margin-bottom: 1rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong><strong class="green">(main)</strong></p>
+                $ <input type="text" name="" class="input_terminal" id="step4_input">
+                <p style="margin-top: 1rem;"><strong class="green">aluno-legal@kksjsskjs</strong> <strong class="purple">MINGW64</strong> <strong class="yellow">~/iniciando_repositorio_gitinho</strong><strong class="green">(gitinho)</strong></p>
+                $ 
+            </div>
+            <div class="btn_box" style="margin-top: 30px;">
+                <div id="btn_next_step_final" class="btn_next">Finalizar fase 2</div>
+            </div>
         </div>
     </article>
 </body>
