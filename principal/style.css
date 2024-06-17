@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
 body{
     padding: 0;
     margin: 0;
+    font-family: "Poetsen One", sans-serif;
+    font-style: normal;
 }
 
 #background_phase{
@@ -53,4 +56,21 @@ body{
 
 .unlocked{
     cursor: pointer;
+}
+
+#btn_return{
+    padding: 1rem;
+    background-color: #9694fc;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    border-radius: 10px;
+    font-weight: 500;
+    width: 6rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+#btn_return:hover{
+    background-color: #706EFA;
 }

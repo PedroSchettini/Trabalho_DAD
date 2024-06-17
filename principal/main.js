@@ -2,6 +2,8 @@ const gameType = localStorage.getItem('gameType')
 let phases = localStorage.getItem('phases')
 phases = JSON.parse(phases)
 
+const btn_return = document.querySelector('#btn_return')
+
 phase1 = document.querySelector('#phase1')
 phase2 = document.querySelector('#phase2')
 phase3 = document.querySelector('#phase3')
@@ -46,3 +48,7 @@ if(!!phase3.classList[1]){
 //         window.location.replace('../principal/index.html')
 //     })
 // }
+
+btn_return.addEventListener('click', () => {
+    window.location.assign('../inicio/index.html')
+})
