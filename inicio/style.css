@@ -189,3 +189,9 @@ img{
   z-index: 11;
   cursor: pointer;
 }
+
+#wikiGit{
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
