@@ -34,6 +34,33 @@ body{
     align-items: center;
 }
 
+.cardOption1{
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+}
+
+.boxContentsFinal{
+    width: 70%;
+    height: 70vh ;
+    background-color: white;
+    border-radius: 20px;
+    opacity: 95%;
+    padding: 2rem;
+    word-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
 .cardOption{
     width: 150px;
     height: 150px;
@@ -43,6 +70,7 @@ body{
     border-radius: 10px;
     font-weight: 700;
     text-align: center;
+    cursor: pointer;
 }
 
 .boxCards{
@@ -131,3 +159,24 @@ body{
     cursor: move;
     user-select: none;
 }
+
+.btn_next{
+    background-color: #9694fc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    float: right;
+    width: 25%;
+}
+
+.btn_box{
+    width: 100%;
+}
+
+.invisible{
+    display: none;
+}
+

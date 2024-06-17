@@ -11,12 +11,11 @@ phase6 = document.querySelector('#phase6')
 let phasesArray = [phase1, phase2, phase3]
 
 if(gameType == 1){
-    for(let i = 5; i >= phases.length; i--){
+    for(let i = 2; i >= phases.length; i--){
         phasesArray[i].setAttribute('src', '../assets/gitinho_bloqueado.png')
         phasesArray[i].classList.remove('unlocked')
     }
 }
-console.log(phase3.classList)
 if(!!phase1.classList[1]){
     phase1.addEventListener('click', () => {
         window.location.assign('../fases/fase 1/index.html')

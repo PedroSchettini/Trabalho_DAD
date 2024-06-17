@@ -23,6 +23,7 @@ const btn_next_step3 = document.querySelector('#btn_next_step3')
 const btn_next_step5 = document.querySelector('#btn_next_step5')
 const btn_next_step7 = document.querySelector('#btn_next_step7')
 const btn_next_step9 = document.querySelector('#btn_next_step9')
+const btn_next_step11 = document.querySelector('#btn_next_step11')
 
 btn_next_step1.addEventListener('click', () => {
     step1.classList.add('invisible')
@@ -75,4 +76,8 @@ btn_next_step7.addEventListener('click', () => {
 btn_next_step9.addEventListener('click', () => {
     step9.classList.add('invisible')
     step10.classList.remove('invisible')
+})
+
+btn_next_step11.addEventListener('click', () => {
+    window.location.replace("./../../quiz/index.html")
 })
