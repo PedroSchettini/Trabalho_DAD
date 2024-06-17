@@ -50,5 +50,5 @@ if(!!phase3.classList[1]){
 // }
 
 btn_return.addEventListener('click', () => {
-    window.location.assign('../inicio/index.html')
+    window.location.assign('../index.html')
 })
