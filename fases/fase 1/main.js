@@ -45,7 +45,7 @@ open_terminal.addEventListener('click', () => {
 })
 
 document.addEventListener("keydown", function(event) {
-    if(event.key == "Enter" && input_step4.value == "git init"){
+    if(event.key == "Enter" && input_step4.value.trim() == "git init"){
             step4.classList.add('invisible')
             step5.classList.remove('invisible')
             input_step4.value = ""

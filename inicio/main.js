@@ -4,6 +4,8 @@ boxgameType = document.querySelector("#game_type")
 close = document.querySelector("#close")
 btnStudent = document.querySelector("#btn_student")
 btnAdventure = document.querySelector("#btn_adventure")
+git_pedia = document.querySelector("#git_pedia")
+
 // const loading = document.getElementById("loading")
 
 // loading.classList.add("invisivel")
@@ -52,3 +54,6 @@ door.addEventListener('mouseenter', () => {
     
 })
 
+git_pedia.addEventListener('click', () => {
+    window.location.assign('../WikiGit/Tutorial Git 3b1c6b776b8943578a03a30ba25c9f60.html')
+})

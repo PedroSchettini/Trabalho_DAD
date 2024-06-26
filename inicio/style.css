@@ -20,6 +20,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
 }
 
 .loading-component{
@@ -194,4 +195,11 @@ img{
   position: absolute;
   top: 1rem;
   left: 1rem;
+  z-index: 9;
+}
+
+#git_pedia{
+  width: 80px;
+  height: 100px;
+  cursor: pointer;
 }
